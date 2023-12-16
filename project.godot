@@ -47,6 +47,7 @@ move_up={
 2d_physics/layer_1="terrain"
 2d_physics/layer_2="traps"
 2d_physics/layer_3="monsters"
+2d_physics/layer_4="player"
 
 [rendering]
 
