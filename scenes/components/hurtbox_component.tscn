@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://n11b0u70wcu1"]
+
+[ext_resource type="Script" path="res://scenes/components/hurtbox_component.gd" id="1_qxjlu"]
+
+[node name="HurtboxComponent" type="Area2D"]
+script = ExtResource("1_qxjlu")

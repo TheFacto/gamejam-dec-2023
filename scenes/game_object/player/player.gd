@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var health_component = $HealthComponent
 @onready var visuals = $Visuals
 @onready var health_bar = $HealthBar
+@onready var damage_interval_timer = $DamageIntervalTimer
 
 @onready var base_speed = 0
 
@@ -12,10 +13,23 @@ extends CharacterBody2D
 
 @onready var inventory = $Inventory;
 
+var number_colliding_bodies = 0
+
 func _ready():
 	base_speed = velocity_component.max_speed
+	
+	$CollisionArea2D.body_entered.connect(on_body_entered)
+	$CollisionArea2D.body_exited.connect(on_body_exited)
 	health_component.health_changed.connect(on_health_changed)
+	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
 	update_health_display()
+	
+func check_deal_damage():
+	if number_colliding_bodies == 0 || !damage_interval_timer.is_stopped():
+		return 0
+	health_component.damage(1)
+	damage_interval_timer.start()
+	print(health_component.current_health)
 
 func _process(delta):
 	var movement_vector = get_movement_vector()
@@ -44,6 +58,13 @@ func _on_game_day_night_change(time):
 		light.hide()
 	else:
 		light.show()
+		
+func on_body_entered(other_body: Node2D):
+	number_colliding_bodies += 1
+	check_deal_damage()
+	
+func on_body_exited(other_body: Node2D):
+	number_colliding_bodies -= 1
 	
 func on_health_changed():
 	GameEvents.emit_player_damaged()
@@ -51,4 +72,6 @@ func on_health_changed():
 	
 func update_health_display():
 	health_bar.value = health_component.get_health_percent()
-	print("Player health changed: " + str(health_component.get_health_percent()))	
+
+func on_damage_interval_timer_timeout():
+	check_deal_damage()
