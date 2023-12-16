@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var velocity_component = $VelocityComponent
+@onready var health_component = $HealthComponent
 
 @onready var base_speed = 0
 
@@ -26,3 +27,6 @@ func get_movement_vector() -> Vector2:
 	var y_movement = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 
 	return Vector2(x_movement, y_movement)
+	
+func on_health_changed():
+	GameEvents.emit_player_damaged()
