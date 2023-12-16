@@ -1,7 +1,7 @@
 extends Node
 
-@export var max_speed: int = 40
-@export var acceleration: float = 5
+@export var max_speed: int = 60
+@export var acceleration: float = 10
 
 var velocity = Vector2.ZERO
 

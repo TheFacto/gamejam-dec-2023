@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqttwfi42h7ur"]
+[gd_scene load_steps=6 format=3 uid="uid://dqttwfi42h7ur"]
 
 [ext_resource type="Texture2D" uid="uid://0e5pqdc4jjlg" path="res://scenes/game_object/player/player.png" id="1_aq4ne"]
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_yu01s"]
 [ext_resource type="PackedScene" uid="uid://vck2ghuf7wyy" path="res://scenes/components/velocity_component.tscn" id="2_wcg06"]
+[ext_resource type="Texture2D" uid="uid://tq26g8vsalt4" path="res://assets/player-light.png" id="4_legte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i5jga"]
 radius = 7.0
@@ -18,6 +19,12 @@ script = ExtResource("1_yu01s")
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("1_aq4ne")
 offset = Vector2(2.08165e-12, -8)
+
+[node name="PointLight2D" type="PointLight2D" parent="Visuals"]
+show_behind_parent = true
+position = Vector2(0, -7)
+shadow_enabled = true
+texture = ExtResource("4_legte")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
