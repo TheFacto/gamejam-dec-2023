@@ -129,3 +129,14 @@ shape = SubResource("CircleShape2D_i5jga")
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource("6_w4iyn")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(32, 4)
+offset_left = -16.0
+offset_top = -25.0
+offset_right = 16.0
+offset_bottom = -21.0
+pivot_offset = Vector2(16, 2)
+max_value = 1.0
+value = 0.5
+show_percentage = false
