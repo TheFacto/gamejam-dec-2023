@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cucnibmo4cuud"
-path="res://.godot/imported/Walk_000.png-e4a6939ab97096bcb5a95277252d0a01.ctex"
+uid="uid://dxgymeod58n6c"
+path="res://.godot/imported/Walk_007.png-49526c5fae63d7b805e9fb7ba066a747.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monster/Walk_000.png"
-dest_files=["res://.godot/imported/Walk_000.png-e4a6939ab97096bcb5a95277252d0a01.ctex"]
+source_file="res://scenes/game_object/monster/assets/Walk_007.png"
+dest_files=["res://.godot/imported/Walk_007.png-49526c5fae63d7b805e9fb7ba066a747.ctex"]
 
 [params]
 

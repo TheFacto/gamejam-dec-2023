@@ -23,6 +23,14 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="gamejam-dec-2023"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+
 [input]
 
 move_left={
@@ -48,11 +56,6 @@ move_up={
 2d_physics/layer_2="traps"
 2d_physics/layer_3="monsters"
 2d_physics/layer_4="player"
-
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
 
 [rendering]
 

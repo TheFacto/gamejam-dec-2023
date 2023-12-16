@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://5oehv3obrnxf"]
+
+[ext_resource type="Script" path="res://scenes/game_object/monster/chase.gd" id="1_jtwco"]
+[ext_resource type="Texture2D" uid="uid://cucnibmo4cuud" path="res://scenes/game_object/monster/assets/Walk_000.png" id="2_epuq5"]
+[ext_resource type="Texture2D" uid="uid://drmwkrorr4757" path="res://scenes/game_object/monster/assets/Walk_001.png" id="3_tgbbf"]
+[ext_resource type="Texture2D" uid="uid://6v5s324uobgo" path="res://scenes/game_object/monster/assets/Walk_002.png" id="4_abmfc"]
+[ext_resource type="Texture2D" uid="uid://sero7i2g8js4" path="res://scenes/game_object/monster/assets/Walk_003.png" id="5_kngx3"]
+[ext_resource type="Texture2D" uid="uid://dkk76bm1lqo3" path="res://scenes/game_object/monster/assets/Walk_004.png" id="6_cnska"]
+[ext_resource type="Texture2D" uid="uid://lk2r65ea7ka1" path="res://scenes/game_object/monster/assets/Walk_005.png" id="7_16pk7"]
+[ext_resource type="Texture2D" uid="uid://c2wltrko1ibdf" path="res://scenes/game_object/monster/assets/Walk_006.png" id="8_onxar"]
+[ext_resource type="Texture2D" uid="uid://dxgymeod58n6c" path="res://scenes/game_object/monster/assets/Walk_007.png" id="9_kspj8"]
+[ext_resource type="Texture2D" uid="uid://c88mdnijjbw57" path="res://scenes/game_object/monster/assets/Walk_008.png" id="10_qeb78"]
+[ext_resource type="Texture2D" uid="uid://dhbux77xtk0gj" path="res://scenes/game_object/monster/assets/Walk_009.png" id="11_7tgg7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewsx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_epuq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tgbbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_abmfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kngx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cnska")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_16pk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_onxar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kspj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qeb78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7tgg7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8w6u"]
+size = Vector2(28, 33)
+
+[node name="Monster" type="CharacterBody2D" node_paths=PackedStringArray("source", "target", "tile_map")]
+position = Vector2(50, 206)
+script = ExtResource("1_jtwco")
+source = NodePath("")
+target = NodePath("")
+show_grid = false
+show_path = false
+tile_map = NodePath("")
+
+[node name="MonsterSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 2)
+scale = Vector2(0.0513423, 0.0513423)
+sprite_frames = SubResource("SpriteFrames_ewsx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s8w6u")
+
+[node name="Path" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(-1, 0)

@@ -16,11 +16,10 @@ script = ExtResource("1_yu01s")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, 7)
 texture = ExtResource("1_aq4ne")
 offset = Vector2(2.08165e-12, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 z_index = 1
-position = Vector2(2.08165e-12, -7.25)
 shape = SubResource("CircleShape2D_i5jga")
