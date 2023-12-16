@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="gamejam-dec-2023"
+run/main_scene="res://scenes/monster-test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="gamejam-dec-2023"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
