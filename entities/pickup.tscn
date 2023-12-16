@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwclwd6c7r5ki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4uoef"]
+radius = 8.0
+
+[node name="Pickup" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 9
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4uoef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -10,6 +10,8 @@ extends CharacterBody2D
 
 @onready var light = $Visuals/PointLight2D;
 
+@onready var inventory = $Inventory;
+
 func _ready():
 	base_speed = velocity_component.max_speed
 	health_component.health_changed.connect(on_health_changed)

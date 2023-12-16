@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqttwfi42h7ur"]
+[gd_scene load_steps=11 format=3 uid="uid://dqttwfi42h7ur"]
 
 [ext_resource type="Texture2D" uid="uid://0e5pqdc4jjlg" path="res://scenes/game_object/player/player.png" id="1_aq4ne"]
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_yu01s"]
 [ext_resource type="PackedScene" uid="uid://vck2ghuf7wyy" path="res://scenes/components/velocity_component.tscn" id="2_wcg06"]
-[ext_resource type="PackedScene" uid="uid://cf105xnyqw3sr" path="res://scenes/components/health_component.tscn" id="3_vryrv"]
+[ext_resource type="PackedScene" path="res://scenes/components/health_component.tscn" id="3_vryrv"]
 [ext_resource type="Texture2D" uid="uid://tq26g8vsalt4" path="res://assets/player-light.png" id="4_legte"]
+[ext_resource type="Script" path="res://scenes/game_object/player/inventory.gd" id="6_w4iyn"]
 
 [sub_resource type="Animation" id="Animation_smumw"]
 length = 0.001
@@ -96,6 +97,7 @@ _data = {
 radius = 7.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 8
 script = ExtResource("1_yu01s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -114,6 +116,7 @@ texture = ExtResource("1_aq4ne")
 offset = Vector2(2.08165e-12, -8)
 
 [node name="PointLight2D" type="PointLight2D" parent="Visuals"]
+visible = false
 show_behind_parent = true
 position = Vector2(0, -7)
 shadow_enabled = true
@@ -123,6 +126,9 @@ texture = ExtResource("4_legte")
 z_index = 1
 position = Vector2(2.08165e-12, -7.25)
 shape = SubResource("CircleShape2D_i5jga")
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("6_w4iyn")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(32, 4)
