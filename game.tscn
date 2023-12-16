@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://coxyjtkf2p2pa"]
+[gd_scene load_steps=5 format=3 uid="uid://coxyjtkf2p2pa"]
 
 [ext_resource type="Texture2D" uid="uid://cuafcdfb8wxhc" path="res://assets/house-Sheet.png" id="1_adlhe"]
+[ext_resource type="PackedScene" uid="uid://cg1u25d5ehqwj" path="res://entities/proximity_bomb.tscn" id="2_cn7py"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6yd71"]
 texture = ExtResource("1_adlhe")
@@ -53,3 +54,5 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 131072, 80530
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 position = Vector2(161, 119)
+
+[node name="ProximityBomb" parent="." instance=ExtResource("2_cn7py")]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg1u25d5ehqwj"]
+
+[ext_resource type="Script" path="res://entities/proximity_bomb.gd" id="1_vepdh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tafsb"]
+
+[node name="ProximityBomb" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_vepdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tafsb")
+
+[connection signal="body_entered" from="." to="." method="_on_monster_entered"]
