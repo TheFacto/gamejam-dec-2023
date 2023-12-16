@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0e5pqdc4jjlg" path="res://scenes/game_object/player/player.png" id="1_aq4ne"]
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_yu01s"]
 [ext_resource type="PackedScene" uid="uid://vck2ghuf7wyy" path="res://scenes/components/velocity_component.tscn" id="2_wcg06"]
-[ext_resource type="PackedScene" path="res://scenes/components/health_component.tscn" id="3_vryrv"]
+[ext_resource type="PackedScene" uid="uid://cf105xnyqw3sr" path="res://scenes/components/health_component.tscn" id="3_vryrv"]
 [ext_resource type="Texture2D" uid="uid://tq26g8vsalt4" path="res://assets/player-light.png" id="4_legte"]
 
 [sub_resource type="Animation" id="Animation_smumw"]
@@ -123,3 +123,14 @@ texture = ExtResource("4_legte")
 z_index = 1
 position = Vector2(2.08165e-12, -7.25)
 shape = SubResource("CircleShape2D_i5jga")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(32, 4)
+offset_left = -16.0
+offset_top = -25.0
+offset_right = 16.0
+offset_bottom = -21.0
+pivot_offset = Vector2(16, 2)
+max_value = 1.0
+value = 0.5
+show_percentage = false
