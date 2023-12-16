@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @onready var base_speed = 0
 
+@onready var light = $Visuals/PointLight2D;
+
 func _process(delta):
 	base_speed = velocity_component.max_speed
 	
@@ -29,6 +31,13 @@ func get_movement_vector() -> Vector2:
 	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	return Vector2(x_movement, y_movement)
+
+func _on_game_day_night_change(time):
+	print("Player: ", time);
+	if time == 0:
+		light.hide()
+	else:
+		light.show()
 	
 func on_health_changed():
 	GameEvents.emit_player_damaged()
