@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://d3gitgxeghmjt"
+=======
+uid="uid://c2t6cwpvnjbyo"
+>>>>>>> main
 path="res://.godot/imported/Walk_009.png-52fdfecac409e6ee9ca7fdc39204bbd3.ctex"
 metadata={
 "vram_texture": false

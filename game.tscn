@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://coxyjtkf2p2pa"]
-
 [ext_resource type="Texture2D" uid="uid://cuafcdfb8wxhc" path="res://assets/house-Sheet.png" id="1_adlhe"]
 [ext_resource type="PackedScene" uid="uid://cg1u25d5ehqwj" path="res://entities/proximity_bomb.tscn" id="2_cn7py"]
+[gd_scene load_steps=5 format=3 uid="uid://d3vi56le1k1or"]
+[ext_resource type="Texture2D" uid="uid://cuafcdfb8wxhc" path="res://assets/house-Sheet.png" id="1_adlhe"]
+[ext_resource type="PackedScene" uid="uid://dqttwfi42h7ur" path="res://scenes/game_object/player/player.tscn" id="2_l5f6g"] main
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6yd71"]
 texture = ExtResource("1_adlhe")
@@ -45,6 +46,10 @@ sources/0 = SubResource("TileSetAtlasSource_6yd71")
 [node name="Game" type="Node2D"]
 
 [node name="House" type="Node2D" parent="."]
+
+[node name="Player" parent="House" instance=ExtResource("2_l5f6g")]
+z_index = 10
+position = Vector2(129, 163)
 
 [node name="TileMap" type="TileMap" parent="House"]
 tile_set = SubResource("TileSet_3obdc")

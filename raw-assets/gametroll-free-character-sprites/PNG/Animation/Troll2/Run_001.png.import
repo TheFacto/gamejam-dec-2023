@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b6ngu4dq175sj"
+=======
+uid="uid://kkixwxyne6xw"
+>>>>>>> main
 path="res://.godot/imported/Run_001.png-63545363f7d526f3391f7889d394474f.ctex"
 metadata={
 "vram_texture": false

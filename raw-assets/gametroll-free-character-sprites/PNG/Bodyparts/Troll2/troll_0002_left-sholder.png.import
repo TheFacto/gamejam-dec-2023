@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://28vy6733beb"
+=======
+uid="uid://c1oyyg1rqqaba"
+>>>>>>> main
 path="res://.godot/imported/troll_0002_left-sholder.png-0d30630f822cbff244c3a8078f7fe88d.ctex"
 metadata={
 "vram_texture": false

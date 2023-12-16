@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://c740bjsg3ieac"
+=======
+uid="uid://c47wh8jdij3uo"
+>>>>>>> main
 path="res://.godot/imported/troll_0004_left-brow (3).png-e277213b648a9353a08fd23df16ce463.ctex"
 metadata={
 "vram_texture": false

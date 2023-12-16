@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://peoigxktv2m8"
+=======
+uid="uid://ccapdqf2fwyaa"
+>>>>>>> main
 path="res://.godot/imported/troll_0009_torso.png-299a830cd1a13920fd989dbfedbfb6aa.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://drgjg0nsnkf4y"
+=======
+uid="uid://dyxcjtins4ej5"
+>>>>>>> main
 path="res://.godot/imported/Idle_003.png-8e6139bcbb354bc24514a786761bfcfb.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://co84d4ekm3fkq"
+=======
+uid="uid://b6ixuguq6w2ua"
+>>>>>>> main
 path="res://.godot/imported/troll_0013_pelvis (3).png-f8298bede7c4cb13f1326156c89ea1ce.ctex"
 metadata={
 "vram_texture": false

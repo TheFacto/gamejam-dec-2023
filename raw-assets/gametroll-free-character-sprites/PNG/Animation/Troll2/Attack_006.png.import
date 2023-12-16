@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://efltf58egmf0"
+=======
+uid="uid://ddl311ha88pct"
+>>>>>>> main
 path="res://.godot/imported/Attack_006.png-47910d3cf6e241d86bb52fd16ebff6aa.ctex"
 metadata={
 "vram_texture": false
