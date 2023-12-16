@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+@onready var animation_player = $AnimationPlayer
 @onready var velocity_component = $VelocityComponent
+@onready var health_component = $HealthComponent
+@onready var visuals = $Visuals
 
 @onready var base_speed = 0
 
@@ -14,21 +17,20 @@ func _process(delta):
 	velocity_component.accelerate_in_direction(direction)
 	velocity_component.move(self)
 	
-	#if movement_vector.x != 0 || movement_vector.y != 0:
-		#animation_player.play("walk")
-	#else:
-		#animation_player.play("RESET")
-		#
-	#var move_sign = sign(movement_vector.x)
-	#if move_sign != 0:
-		#visuals.scale = Vector2(move_sign, 1)
+	if movement_vector.x != 0 || movement_vector.y != 0:
+		animation_player.play("walk")
+	else:
+		animation_player.play("RESET")
+		
+	var move_sign = sign(movement_vector.x)
+	if move_sign != 0:
+		visuals.scale = Vector2(move_sign, 1)
 
 func get_movement_vector() -> Vector2:	
-	var x_movement = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	var y_movement = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	return Vector2(x_movement, y_movement)
-
 
 func _on_game_day_night_change(time):
 	print("Player: ", time);
@@ -36,3 +38,6 @@ func _on_game_day_night_change(time):
 		light.hide()
 	else:
 		light.show()
+	
+func on_health_changed():
+	GameEvents.emit_player_damaged()
