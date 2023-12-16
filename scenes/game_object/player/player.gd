@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 @onready var light = $Visuals/PointLight2D;
 
+@onready var inventory = $Inventory;
+
 func _process(delta):
 	base_speed = velocity_component.max_speed
 	

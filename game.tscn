@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://coxyjtkf2p2pa"]
+[gd_scene load_steps=11 format=3 uid="uid://coxyjtkf2p2pa"]
 
 [ext_resource type="Texture2D" uid="uid://cuafcdfb8wxhc" path="res://assets/house-Sheet.png" id="1_adlhe"]
 [ext_resource type="Script" path="res://game.gd" id="1_fckuo"]
 [ext_resource type="PackedScene" uid="uid://cg1u25d5ehqwj" path="res://entities/proximity_bomb.tscn" id="2_cn7py"]
 [ext_resource type="PackedScene" uid="uid://dqttwfi42h7ur" path="res://scenes/game_object/player/player.tscn" id="2_odw68"]
+[ext_resource type="PackedScene" uid="uid://b31a26kidmtu7" path="res://entities/fridge.tscn" id="3_wi1fi"]
+[ext_resource type="PackedScene" uid="uid://cwclwd6c7r5ki" path="res://entities/pickup.tscn" id="4_2xr5n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ni8"]
 texture = ExtResource("1_adlhe")
@@ -80,6 +82,11 @@ occluder = SubResource("OccluderPolygon2D_d1kn3")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="House"]
 occluder = SubResource("OccluderPolygon2D_shm78")
+
+[node name="Fridge" parent="House" instance=ExtResource("3_wi1fi")]
+
+[node name="Pickup" parent="House" instance=ExtResource("4_2xr5n")]
+position = Vector2(56, 48)
 
 [node name="Player" parent="." instance=ExtResource("2_odw68")]
 position = Vector2(240, 64)
