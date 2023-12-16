@@ -1,21 +1,13 @@
-<<<<<<< HEAD
-[gd_scene load_steps=4 format=3 uid="uid://coxyjtkf2p2pa"]
-
-=======
-[gd_scene load_steps=11 format=3 uid="uid://coxyjtkf2p2pa"]
+[gd_scene load_steps=12 format=3 uid="uid://coxyjtkf2p2pa"]
 
 [ext_resource type="Texture2D" uid="uid://cuafcdfb8wxhc" path="res://assets/house-Sheet.png" id="1_adlhe"]
 [ext_resource type="Script" path="res://game.gd" id="1_fckuo"]
->>>>>>> 5a7643e81b8e4e43abdd21165e90ac6ce5c6d88f
 [ext_resource type="PackedScene" uid="uid://cg1u25d5ehqwj" path="res://entities/proximity_bomb.tscn" id="2_cn7py"]
 [ext_resource type="PackedScene" uid="uid://dqttwfi42h7ur" path="res://scenes/game_object/player/player.tscn" id="2_odw68"]
 [ext_resource type="PackedScene" uid="uid://b31a26kidmtu7" path="res://entities/fridge.tscn" id="3_wi1fi"]
 [ext_resource type="PackedScene" uid="uid://cwclwd6c7r5ki" path="res://entities/pickup.tscn" id="4_2xr5n"]
+[ext_resource type="PackedScene" uid="uid://5oehv3obrnxf" path="res://scenes/game_object/monster/monster.tscn" id="7_2aqt7"]
 
-<<<<<<< HEAD
-[sub_resource type="TileSet" id="TileSet_3obdc"]
-physics_layer_0/collision_layer = 1
-=======
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ni8"]
 texture = ExtResource("1_adlhe")
 0:0/0 = 0
@@ -75,7 +67,6 @@ polygon = PackedVector2Array(80, 64, 80, 80, 112, 80, 112, 64)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_shm78"]
 polygon = PackedVector2Array(16, 224, 0, 240, 0, 112, 0, 0, 320, 0, 320, 240, 0, 240, 16, 224, 304, 224, 304, 128, 224, 128, 224, 112, 304, 112, 304, 16, 192, 16, 192, 128, 160, 128, 160, 112, 176, 112, 176, 32, 32, 32, 32, 48, 16, 48, 16, 112, 96, 112, 96, 128, 16, 128)
->>>>>>> 5a7643e81b8e4e43abdd21165e90ac6ce5c6d88f
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_fckuo")
@@ -112,6 +103,11 @@ wait_time = 5.0
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Monster" parent="." node_paths=PackedStringArray("source", "target", "tile_map") instance=ExtResource("7_2aqt7")]
+source = NodePath(".")
+target = NodePath("../Player")
+tile_map = NodePath("../House/TileMap")
 
 [connection signal="day_night_change" from="." to="Player" method="_on_game_day_night_change"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
