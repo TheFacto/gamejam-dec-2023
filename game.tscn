@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://game.gd" id="1_fckuo"]
 [ext_resource type="PackedScene" uid="uid://cg1u25d5ehqwj" path="res://entities/proximity_bomb.tscn" id="2_cn7py"]
 [ext_resource type="PackedScene" uid="uid://dqttwfi42h7ur" path="res://scenes/game_object/player/player.tscn" id="2_odw68"]
-[ext_resource type="PackedScene" path="res://entities/fridge.tscn" id="3_wi1fi"]
-[ext_resource type="PackedScene" path="res://entities/pickup.tscn" id="4_2xr5n"]
+[ext_resource type="PackedScene" uid="uid://b31a26kidmtu7" path="res://entities/fridge.tscn" id="3_wi1fi"]
+[ext_resource type="PackedScene" uid="uid://ds5pcakqq045m" path="res://entities/pickup.tscn" id="4_2xr5n"]
 [ext_resource type="PackedScene" uid="uid://5oehv3obrnxf" path="res://scenes/game_object/monster/monster.tscn" id="7_2aqt7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ni8"]
@@ -90,6 +90,7 @@ occluder = SubResource("OccluderPolygon2D_shm78")
 position = Vector2(56, 48)
 
 [node name="Player" parent="." instance=ExtResource("2_odw68")]
+z_index = 5
 position = Vector2(240, 64)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

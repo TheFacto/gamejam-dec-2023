@@ -7,6 +7,8 @@ extends Node2D
 @export var speed = 10
 @export var tile_map = TileMap.new()
 
+@onready var path = $Path
+
 var astar_grid = AStarGrid2D.new()
 var cell_size
 var grid_size
@@ -16,6 +18,8 @@ var start = Vector2i.ZERO
 var end = Vector2i(5, 5)
 
 func _ready():
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	path.visible = show_path
 	initialize_grid()
 	
 ## Converts a Vector2 into a set of coordinates that fall into the grid
@@ -58,7 +62,7 @@ func update_path():
 	for p in point_path:
 		local_point_path.append(to_local(p))
 	
-	$Path.points = local_point_path
+	path.points = local_point_path
 	
 ## Renders the grid. Useful for debugging.
 func draw_grid():
@@ -77,8 +81,11 @@ func move_character():
 	
 	# If player is close to point_path 0, then move to next point
 	if source.global_position.distance_to(point_path[0]) < 10:
-		next_point = point_path[1];
-	
+		if (point_path.size() > 1):
+			next_point = point_path[1];
+		else:
+			print("no next point, monster is probably overlapping with player")
+		
 	var direction = (next_point - source.global_position).normalized()
 	source.velocity = direction * speed
 	source.move_and_slide()

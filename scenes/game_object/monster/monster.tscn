@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5oehv3obrnxf"]
+[gd_scene load_steps=16 format=3 uid="uid://5oehv3obrnxf"]
 
 [ext_resource type="Script" path="res://scenes/game_object/monster/chase.gd" id="1_jtwco"]
 [ext_resource type="Texture2D" uid="uid://cucnibmo4cuud" path="res://scenes/game_object/monster/assets/Walk_000.png" id="2_epuq5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dxgymeod58n6c" path="res://scenes/game_object/monster/assets/Walk_007.png" id="9_kspj8"]
 [ext_resource type="Texture2D" uid="uid://c88mdnijjbw57" path="res://scenes/game_object/monster/assets/Walk_008.png" id="10_qeb78"]
 [ext_resource type="Texture2D" uid="uid://dhbux77xtk0gj" path="res://scenes/game_object/monster/assets/Walk_009.png" id="11_7tgg7"]
+[ext_resource type="PackedScene" uid="uid://n11b0u70wcu1" path="res://scenes/components/hurtbox_component.tscn" id="12_16l3i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ewsx8"]
 animations = [{
@@ -50,26 +51,38 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8w6u"]
-size = Vector2(28, 33)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qrvd"]
+radius = 8.0
 
-[node name="Monster" type="CharacterBody2D" node_paths=PackedStringArray("source", "target", "tile_map")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggnf5"]
+radius = 16.0
+
+[node name="Monster" type="CharacterBody2D"]
 position = Vector2(50, 206)
+collision_layer = 4
+motion_mode = 1
+floor_stop_on_slope = false
 script = ExtResource("1_jtwco")
-source = NodePath("")
-target = NodePath("")
 show_grid = false
 show_path = false
-tile_map = NodePath("")
+speed = 20
 
 [node name="MonsterSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(9, 2)
-scale = Vector2(0.0513423, 0.0513423)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_ewsx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_s8w6u")
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_5qrvd")
 
 [node name="Path" type="Line2D" parent="."]
-visible = false
 points = PackedVector2Array(-1, 0)
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("12_16l3i")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ggnf5")
