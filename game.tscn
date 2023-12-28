@@ -96,6 +96,8 @@ position = Vector2(240, 64)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(4, -31)
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Player"]
+
 [node name="ProximityBomb" parent="." instance=ExtResource("2_cn7py")]
 position = Vector2(208, 146)
 

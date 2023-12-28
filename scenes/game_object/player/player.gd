@@ -15,6 +15,13 @@ extends CharacterBody2D
 
 var number_colliding_bodies = 0
 
+var damage_playing = false
+var damage_frame = 0
+var damage_time_since_last_frame = 0
+var damage_time_elapsed = 0
+
+const damageMaterial = preload("res://scenes/game_object/player/damage_material.tres")
+
 func _ready():
 	base_speed = velocity_component.max_speed
 	
@@ -30,6 +37,31 @@ func check_deal_damage():
 	health_component.damage(1)
 	damage_interval_timer.start()
 	print(health_component.current_health)
+	play_damage_animation()
+
+func play_damage_animation():
+	damage_playing = true
+	damage_frame = 0
+	damage_time_elapsed = 0
+	damage_time_since_last_frame = 0
+	$Visuals/Sprite2D.material = damageMaterial
+	
+func update_damage_animation(delta):
+	if not damage_playing:
+		return
+	damage_time_elapsed += delta
+	damage_time_since_last_frame += delta
+	
+	# Change frames every few tenths of a second
+	if damage_time_since_last_frame > 0.03:
+		$Visuals/Sprite2D.material.set_shader_parameter("current_frame", damage_frame % 8)
+		damage_frame += 1
+		damage_time_since_last_frame = 0
+		
+	# Stop after a little bit
+	if damage_time_elapsed > 0.7:
+		damage_playing = false
+		$Visuals/Sprite2D.material = null
 
 func _process(delta):
 	var movement_vector = get_movement_vector()
@@ -45,6 +77,8 @@ func _process(delta):
 	var move_sign = sign(movement_vector.x)
 	if move_sign != 0:
 		visuals.scale = Vector2(move_sign, 1)
+		
+	update_damage_animation(delta)
 
 func get_movement_vector() -> Vector2:	
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")

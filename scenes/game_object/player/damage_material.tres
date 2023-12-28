@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b8b2mas2sacdn"]
+
+[ext_resource type="Shader" path="res://scenes/game_object/player/damage.gdshader" id="1_4vwac"]
+
+[resource]
+shader = ExtResource("1_4vwac")
+shader_parameter/start_frame = 0
+shader_parameter/current_frame = 0
+shader_parameter/mix_ratio = 1.0
