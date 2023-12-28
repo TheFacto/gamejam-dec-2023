@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://u04bg5oqmas8"]
+
+[ext_resource type="Script" path="res://scenes/game_object/monster_spawner/monster_spawner.gd" id="1_km7e3"]
+[ext_resource type="PackedScene" uid="uid://5oehv3obrnxf" path="res://scenes/game_object/monster/monster.tscn" id="2_dcfk2"]
+
+[node name="MonsterSpawner" type="Node2D"]
+script = ExtResource("1_km7e3")
+monster_scene = ExtResource("2_dcfk2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
