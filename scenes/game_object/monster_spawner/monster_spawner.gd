@@ -25,4 +25,3 @@ func on_timer_timeout():
 	monster.tile_map = tile_map
 	house.add_child(monster)
 	monster.position = global_position
-	#monster.collision_shape_2d.disabled = true # TODO: set back to true once inside the house
