@@ -8,6 +8,7 @@ extends Node2D
 @export var tile_map = TileMap.new()
 
 @onready var path = $Path
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var astar_grid = AStarGrid2D.new()
 var cell_size

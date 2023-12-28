@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_ojllc"]
 [ext_resource type="Texture2D" uid="uid://cuafcdfb8wxhc" path="res://assets/house-Sheet.png" id="2_jh1db"]
-[ext_resource type="PackedScene" uid="uid://3k5vjfo70br4" path="res://scenes/game_object/enemy_test/EnemyTest.tscn" id="3_qclb2"]
 [ext_resource type="PackedScene" uid="uid://dqttwfi42h7ur" path="res://scenes/game_object/player/player.tscn" id="3_sqiyx"]
+[ext_resource type="PackedScene" uid="uid://u04bg5oqmas8" path="res://scenes/game_object/monster_spawner/monster_spawner.tscn" id="4_dhf4k"]
 [ext_resource type="PackedScene" uid="uid://cg1u25d5ehqwj" path="res://entities/proximity_bomb.tscn" id="4_rpakv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ni8"]
@@ -82,8 +82,11 @@ occluder = SubResource("OccluderPolygon2D_d1kn3")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="House"]
 occluder = SubResource("OccluderPolygon2D_shm78")
 
-[node name="EnemyTest" parent="House" instance=ExtResource("3_qclb2")]
-position = Vector2(159, 170)
+[node name="MonsterSpawner" parent="House" node_paths=PackedStringArray("player_instance", "tile_map", "house") instance=ExtResource("4_dhf4k")]
+position = Vector2(163, 198)
+player_instance = NodePath("../../Player")
+tile_map = NodePath("../TileMap")
+house = NodePath("..")
 
 [node name="Player" parent="." instance=ExtResource("3_sqiyx")]
 position = Vector2(240, 64)
